@@ -9,10 +9,10 @@ import "./styles/Reset.sass"
 
 import Header from "./components/header/Header.tsx";
 import {Driver} from "./Types.ts";
-// import Breadcrumbs from "./Components/Breadcrumbs/Breadcrumbs";
 import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import DriverPage from "./pages/DriverPage/DriverPage.tsx";
 import ProfilePage from "./pages/ProfilePage/ProfilePage.tsx";
+import Breadcrumbs from "./components/breadcrumbs/Breadcrumbs.tsx";
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             <Header />
 
             <div className={"content-wrapper"}>
-
+              <Breadcrumbs selectedDriver={selectedDriver} setSelectedDriver={setSelectedDriver}/>
 
               <Routes>
 
