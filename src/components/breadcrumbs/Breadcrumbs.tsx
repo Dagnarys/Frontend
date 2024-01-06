@@ -15,10 +15,8 @@ const Breadcrumbs = ({ selectedDriver, setSelectedDriver }: { selectedCity:Drive
         "drivers": "Водители",
         "insurances":"Страховки",
         "profile": "Личный кабинет",
-        "draft": "Черновик",
         "home": "Главная",
-        "login": "Вход",
-        "register": "Регистрация"
+
     }
 
     const resetSelectedDriver = () => setSelectedDriver(undefined)
@@ -48,7 +46,7 @@ const Breadcrumbs = ({ selectedDriver, setSelectedDriver }: { selectedCity:Drive
                 <div className={"crumb"} key={crumb}>
 
                     <Link to={currentLink}>
-                        { selectedDriver?.name }
+                        { selectedDriver?.full_name }
                     </Link>
 
                     <FaChevronRight className={"chevron-icon"}/>
