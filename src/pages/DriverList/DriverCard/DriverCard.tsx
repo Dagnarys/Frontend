@@ -9,7 +9,7 @@ const DriverCard = ({ driver, isMock }: {driver:Driver, isMock:boolean }) => {
 
     return (
         <div className="card-wrapper">
-            <Link to={`/drivers/${driver.id}`} className="custom-link">
+            <Link to={`/drivers/${driver.id}/`} className="custom-link">
             <div className="preview">
                 <img src={isMock ? mockImage : img}  alt=""/>
             </div>

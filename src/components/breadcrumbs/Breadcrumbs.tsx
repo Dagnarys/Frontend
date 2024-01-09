@@ -5,7 +5,7 @@ import {FaHome} from "react-icons/fa";
 import {Driver} from "../../Types";
 import {Dispatch} from "react";
 
-const Breadcrumbs = ({ selectedDriver, setSelectedDriver }: { selectedCity:Driver | undefined, setSelectedCity: Dispatch<Driver | undefined> }) => {
+const Breadcrumbs = ({ selectedDriver, setSelectedDriver }: { selectedCity:Driver | undefined, setSelectedDriver: Dispatch<Driver | undefined> }) => {
 
     const location = useLocation()
 

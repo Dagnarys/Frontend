@@ -22,7 +22,7 @@ const DriverPage = ({ selectedDriver, setSelectedDriver }: { selectedDriver:Driv
     const fetchData = async () => {
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/drivers/${id}`, {
+            const response = await fetch(`http://127.0.0.1:8000/api/drivers/${id}/`, {
                 method: "GET",
                 signal: AbortSignal.timeout(requestTime)
             });
