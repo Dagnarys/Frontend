@@ -1,12 +1,12 @@
 import "./Search.sass"
-import React, {Dispatch, FormEvent} from "react";
+import React, {Dispatch} from "react";
 import {FaSearch} from "react-icons/fa";
 interface SearchBarProps {
     query: string;
     setQuery: Dispatch<string>;
 
 }
-const SearchBar: React.FC<SearchBarProps> = ({ query, setQuery, h }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ query, setQuery}) => {
     const handleChange = (value: string) => {
         setQuery(value);
 

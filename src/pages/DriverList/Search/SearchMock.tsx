@@ -1,7 +1,6 @@
 import "./Search.sass"
-import React, {Dispatch, FormEvent, useState} from "react";
+import React, { FormEvent, useState} from "react";
 import {FaSearch} from "react-icons/fa";
-import {DriversMock} from "../../../Consts.ts";
 interface SearchBarMockProps {
     onSearch: (searchTerm: string) => void;
 }
