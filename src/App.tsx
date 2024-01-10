@@ -9,7 +9,7 @@ import "./styles/Reset.sass"
 
 import Header from "./components/header/Header.tsx";
 import {Driver} from "./Types.ts";
-import {BrowserRouter, Route} from 'react-router-dom';
+import { Route, Routes, Navigate, BrowserRouter} from 'react-router-dom';
 import DriverPage from "./pages/DriverPage/DriverPage.tsx";
 import ProfilePage from "./pages/ProfilePage/ProfilePage.tsx";
 import Breadcrumbs from "./components/breadcrumbs/Breadcrumbs.tsx";
@@ -22,7 +22,7 @@ function App() {
   return (
 
       // <DriverList/>
-      <BrowserRouter basename="/SPA">
+      <BrowserRouter>
 
         <div className="App">
 
