@@ -14,5 +14,5 @@ export default defineConfig({
 
   
   replacement: '$1',
-  base: '/SPA/'
+  base: '/frontend/'
 })
