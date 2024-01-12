@@ -5,6 +5,7 @@ import {useAuth} from "../../../hooks/users/useAuth";
 import {variables} from "../../../utils/consts";
 import LinkButton from "../../../components/LinkButton/LinkButton";
 import CustomButton from "../../../components/CustomButton/CustomButton";
+import {useLocation} from "react-router-dom";
 
 const DriversFilters = ({refetch}) => {
 
@@ -12,6 +13,7 @@ const DriversFilters = ({refetch}) => {
 
     const {query, setQuery} = useDrivers()
 
+    const location = useLocation();
     const handleSubmit = (e) => {
         e.preventDefault()
         refetch()
@@ -23,8 +25,8 @@ const DriversFilters = ({refetch}) => {
             <h2>Поиск водителей</h2>
 
             <div className="right-container">
-                {is_moderator &&
-                    <LinkButton to="/drivers/create" bg={variables.primary}>
+                {is_moderator && (location.pathname === '/drivers_table')&&
+                    <LinkButton to="/drivers/create" bg={variables.primary} >
                         Добавить водителя
                     </LinkButton>
                 }
