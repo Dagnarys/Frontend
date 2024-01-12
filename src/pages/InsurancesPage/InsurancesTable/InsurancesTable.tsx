@@ -143,6 +143,7 @@ const InsurancesTable = () => {
         <div>
 
             <CustomTable
+
                 getTableBodyProps={getTableBodyProps}
                 headerGroups={headerGroups}
                 page={page}

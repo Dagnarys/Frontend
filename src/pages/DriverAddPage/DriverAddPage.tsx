@@ -97,7 +97,7 @@ const DriverAddPage = () => {
 
                     <CustomInput placeholder="Имя" value={name} setValue={setName} />
 
-                    <CustomTextarea placeholder="Дата рождения" value={birth_date} setValue={setBirth_date} />
+                    <CustomInput  placeholder="Дата рождения" value={birth_date} setValue={setBirth_date} />
 
                     <CustomInput placeholder="Адрес" value={address} setValue={setAddress} />
 
