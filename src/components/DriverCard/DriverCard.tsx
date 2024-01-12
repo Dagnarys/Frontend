@@ -46,7 +46,7 @@ const DriverCard = ({ driver }: {driver:Driver}) => {
                         </CustomButton>
                     </Link>
                     
-                    {is_authenticated && !is_chosen && !is_moderator && location.pathname.includes("drivers") &&
+                    {is_authenticated && !is_chosen && is_moderator && location.pathname.includes("drivers") &&
                         <CustomButton onClick={handleAddDriver} bg={variables.green}>Добавить</CustomButton>
                     }
 
@@ -54,7 +54,7 @@ const DriverCard = ({ driver }: {driver:Driver}) => {
                         <CustomButton onClick={handleDeleteDriver} bg={variables.red} >Удалить</CustomButton>
                     }
 
-                    {is_authenticated && !is_moderator && is_draft && location.pathname.includes("insurances") &&
+                    {is_authenticated && is_moderator && is_draft && location.pathname.includes("insurances") &&
                         <CustomButton onClick={handleDeleteDriver} bg={variables.red}>Удалить</CustomButton>
                     }
 

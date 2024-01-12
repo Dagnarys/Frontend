@@ -6,7 +6,7 @@ import Hamburger from "../Hamburger/Hamburger";
 
 const NavMenu = () => {
 
-    const {is_authenticated, auth, user_name} = useAuth()
+    const {is_authenticated,is_moderator, auth, user_name} = useAuth()
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -39,6 +39,7 @@ const NavMenu = () => {
                         <span>Вход</span>
                     </Link>
                 }
+
 
             </div>
 

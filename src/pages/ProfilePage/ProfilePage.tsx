@@ -19,9 +19,14 @@ const ProfilePage = () => {
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		if (name === "email" && !value.includes("@user.com")) {
-			// If the email field doesn't contain "@", prevent updating the formData
-			return;
+		if (is_moderator) {
+			if (name === "email" && !value.includes("@root.com")) {
+				return;
+			}
+		} else {
+			if (name === "email" && !value.includes("@user.com")) {
+				return;
+			}
 		}
 		setFormData((prevData) => ({ ...prevData, [name]: value }));
 	};
@@ -58,18 +63,18 @@ const ProfilePage = () => {
 				<span>{user_name}</span>
 			)}
         </span>
-				<span>
+		<span>
           Почта:{" "}
-					{isEditing ? (
-						<input
-							type="text"
-							name="email"
-							value={formData.email}
-							onChange={handleInputChange}
-						/>
-					) : (
-						<span>{user_email}</span>
-					)}
+			{isEditing ? (
+				<input
+					type="text"
+					name="email"
+					value={formData.email}
+					onChange={handleInputChange}
+				/>
+			) : (
+				<span>{user_email}</span>
+			)}
         </span>
 				<span>Статус: {is_moderator ? "Модератор" : "Пользователь"}</span>
 				{isEditing ? (

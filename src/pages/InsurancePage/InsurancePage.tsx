@@ -70,7 +70,7 @@ const InsurancePage = () => {
     const is_draft = insurance.status == 1
 
     const completed = [3, 4].includes(insurance.status)
-    console.log(insurance.premium_amount)
+
     const premium_amount = () => {
 
 
@@ -91,16 +91,10 @@ const InsurancePage = () => {
                     {[2, 3, 4].includes(insurance.status) && <span>Дата формирования: {moment(insurance.date_formation).locale(ru()).format("D MMMM HH:mm")}</span>}
                     {completed && <span>Дата завершения: {moment(insurance.date_complete).locale(ru()).format("D MMMM HH:mm")}</span> }
                     {is_moderator && <span>Пользователь: {insurance.employer.name}</span> }
-                    {completed && <span>Сумма: {premium_amount()}</span>}
+                    {completed && <span>Страховая премия: {premium_amount()}.00 р.</span>}
                 </div>
 
-                {is_draft &&
-                    <div className="inputs-container">
 
-                    <CustomInput placeholder={"Номер страховки"} value={name} setValue={setName}/>
-
-                    </div>
-                }
 
 
                 <div className="bottom">
@@ -110,7 +104,7 @@ const InsurancePage = () => {
                 </div>
             </div>
 
-            {!is_moderator && is_draft && <ButtonsContainer />}
+            {is_moderator && is_draft && <ButtonsContainer />}
 
         </div>
     )

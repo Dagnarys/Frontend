@@ -50,7 +50,7 @@ const InsurancesTable = () => {
             Cell: ({ value }) => { return moment(value).locale(ru()).format("D MMMM HH:mm") }
         },
         {
-            Header: "Сумма",
+            Header: "Страховая премия",
             accessor: "premium_amount",
             Cell: ({ value }) => {
 
