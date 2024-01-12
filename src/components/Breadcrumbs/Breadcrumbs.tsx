@@ -18,6 +18,7 @@ const Breadcrumbs = () => {
     const resetSelectedDriver = () => setDriver(undefined)
 
     const topics = {
+        "drivers_table":"Таблица водителей",
         "drivers": "Водители",
         "insurances": "Страховки",
         "home": "Главная",

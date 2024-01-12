@@ -17,7 +17,9 @@ const NavMenu = () => {
     return (
         <div>
             <div className={"menu-wrapper " + (isOpen ? "open" : "")}>
-
+                <Link to="/drivers_table" className="menu-item" onClick={(e) => {setIsOpen(false)}} >
+                    <span>Таблица водителей</span>
+                </Link>
                 <Link to="/drivers" className="menu-item" onClick={(e) => {setIsOpen(false)}} >
                     <span>Водители</span>
                 </Link>

@@ -17,6 +17,7 @@ import InsurancePage from "./pages/InsurancePage/InsurancePage.tsx";
 import InsurancesPage from "./pages/InsurancesPage/InsurancesPage.tsx";
 import DriverEditPage from "./pages/DriverEditPage/DriverEditPage";
 import DriverAddPage from "./pages/DriverAddPage/DriverAddPage";
+import DriversTableWrapper from "./pages/DriversPage/DriversTableWrapper/DriversTableWrapper.tsx";
 
 
 const TopPanelWrapper = () => {
@@ -78,6 +79,8 @@ function App() {
                                     <Route path="/login" element={<LoginPage />} />
 
                                     <Route path="/register" element={<RegisterPage />} />
+
+                                    <Route path="/drivers_table" element={<DriversTableWrapper />} />
 
                                 </Routes>
 

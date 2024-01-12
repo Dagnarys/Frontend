@@ -10,8 +10,8 @@ const DriversPage = () => {
     return (
         <div className="drivers-wrapper">
 
-            <DriversList />
-            {is_moderator && <DriversTableWrapper />}
+            {<DriversList />}
+
 
         </div>
     )
