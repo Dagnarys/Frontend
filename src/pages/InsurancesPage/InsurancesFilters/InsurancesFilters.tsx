@@ -44,9 +44,7 @@ const InsurancesFilters = ({refetch}) => {
 
                 {is_moderator && <SearchBar query={user} setQuery={setUser} placeholder="Поиск по пользователям..." onSubmit={handleSubmit} />}
 
-                <CustomButton bg={variables.primary}>
-                    Применить
-                </CustomButton>
+
 
             </form>
 
