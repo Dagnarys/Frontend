@@ -2,7 +2,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
 	updateInsurance,
 	updateDrivers,
-	updateInsuranceName
+	updateInsuranceName,
+	updateInsuranceId
 } from "../../store/insurances/insuranceSlice.ts";
 import {useToken} from "../users/useToken";
 import {api} from "../../utils/api";
@@ -12,6 +13,8 @@ export function useInsurance() {
 	const {access_token} = useToken()
 
 	const insurance = useSelector(state => state.insurance.insurance)
+
+	const insurance_id = useSelector(state => state.insurance.insurance_id)
 
 	const name = useSelector(state => state.insurance.name)
 
@@ -25,6 +28,10 @@ export function useInsurance() {
 
 	const setDrivers = (value) => {
 		dispatch(updateDrivers(value))
+	}
+
+	const setInsuranceId = (value) => {
+		dispatch(updateInsuranceId(value))
 	}
 
 	const setName = (value) => {
@@ -90,26 +97,24 @@ export function useInsurance() {
 
 	const addDriverToInsurance = async (driver) => {
 
-		const response = await api.post(`drivers/${driver.id}/add_to_insurance/`, {}, {
+		await api.post(`drivers/${driver.id}/add_to_insurance/`, {}, {
 			headers: {
 				'authorization': access_token
 			},
-		});
-
-		if (response.status == 200) {
-			setInsurance(response.data)
-		}
+		})
 	}
 
-	const deleteDriverFromInsurance = async (driver) => {
+	const deleteDriverFromInsurance = async (driver, navigate=null) => {
 		const response = await api.delete(`insurances/${insurance.id}/delete_driver/${driver.id}/`, {
 			headers: {
 				'authorization': access_token
-			},
-		});
+			}
+		})
 
-		if (response.status == 200) {
+		if (response.status == 200){
 			setDrivers(response.data)
+		} else if (response.status == 201) {
+			navigate && navigate("/")
 		}
 	}
 
@@ -117,6 +122,7 @@ export function useInsurance() {
 		insurance,
 		name,
 		is_draft,
+		insurance_id,
 		setInsurance,
 		setDrivers,
 		setName,
@@ -125,6 +131,7 @@ export function useInsurance() {
 		deleteInsurance,
 		fetchInsurance,
 		addDriverToInsurance,
-		deleteDriverFromInsurance
+		deleteDriverFromInsurance,
+		setInsuranceId
 	};
 }

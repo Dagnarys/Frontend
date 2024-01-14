@@ -1,14 +1,13 @@
 import {useEffect} from "react";
 import {useInsurance} from "../../hooks/insurances/useInsurance.ts";
 import {useNavigate, useParams} from "react-router-dom"
-import DriverCard from "../../components/DriverCard/DriverCard.tsx";
+import DriverCard from "../../../../homework/src/components/DriverCard/DriverCard.tsx";
 import "./InsurancePage.sass"
 import {useAuth} from "../../hooks/users/useAuth";
 import {STATUSES, variables} from "../../utils/consts";
 import {ru} from "../../utils/momentLocalization";
 import moment from "moment";
 import CustomButton from "../../components/CustomButton/CustomButton";
-import CustomInput from "../../components/CustomInput/CustomInput";
 
 const InsurancePage = () => {
 
@@ -57,8 +56,6 @@ const InsurancePage = () => {
         return (
             <div className="buttons-wrapper">
 
-                <CustomButton onClick={saveInsurance} bg={variables.green}>Сохранить</CustomButton>
-
                 <CustomButton onClick={onSendInsurance} bg={variables.primary}>Отправить</CustomButton>
 
                 <CustomButton onClick={onDeleteInsurance} bg={variables.red}>Удалить</CustomButton>
@@ -94,9 +91,6 @@ const InsurancePage = () => {
                     {completed && <span>Страховая премия: {premium_amount()}.00 р.</span>}
                 </div>
 
-
-
-
                 <div className="bottom">
 
                     {cards}
@@ -104,7 +98,7 @@ const InsurancePage = () => {
                 </div>
             </div>
 
-            {is_moderator && is_draft && <ButtonsContainer />}
+            { is_draft && <ButtonsContainer />}
 
         </div>
     )

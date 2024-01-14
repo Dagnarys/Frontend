@@ -29,7 +29,7 @@ const TopPanelWrapper = () => {
     return (
         <div className="top-panel-wrapper">
             <Breadcrumbs />
-            {is_authenticated && is_moderator && location.pathname.endsWith("drivers") && <InsuranceConstructor /> }
+            {is_authenticated && location.pathname.endsWith("drivers") && <InsuranceConstructor /> }
         </div>
     )
 }

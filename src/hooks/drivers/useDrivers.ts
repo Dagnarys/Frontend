@@ -13,7 +13,7 @@ export function useDrivers() {
 
 	const {access_token} = useToken()
 
-	const {fetchInsurance} = useInsurance()
+	const {setInsurance, setInsuranceId} = useInsurance()
 
 	const dispatch = useDispatch()
 
@@ -25,9 +25,9 @@ export function useDrivers() {
 		dispatch(updateQuery(value))
 	}
 
-	const searchDrivers = async () => {
+	const searchDrivers = async (navigate=null) => {
 
-		const {data} = await api.get(`drivers/search`, {
+		const {data} = await api.get(`drivers/search/`, {
 			params: {
 				query: query
 			},
@@ -37,7 +37,12 @@ export function useDrivers() {
 		})
 
 		const draft_insurance_id = data["draft_insurance_id"]
-		draft_insurance_id && fetchInsurance(draft_insurance_id)
+		setInsuranceId(draft_insurance_id)
+
+		if (!draft_insurance_id) {
+			setInsurance(undefined)
+			navigate && navigate("/")
+		}
 
 		return data["drivers"]
 	}

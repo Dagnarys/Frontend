@@ -1,5 +1,5 @@
 import "./DriversList.sass"
-import DriverCard from "../../../components/DriverCard/DriverCard.tsx";
+import DriverCard from "../../../../../homework/src/components/DriverCard/DriverCard.tsx";
 import {useDrivers} from "../../../hooks/drivers/useDrivers.ts";
 import {useQuery} from "react-query";
 import DriversFilters from "../DriversFilters/DriversFilters";

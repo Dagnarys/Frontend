@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 
 const InsuranceConstructor = () => {
 
-    const {insurance} = useInsurance()
+    const {insurance_id} = useInsurance()
 
-    if (insurance == undefined) {
+    if (insurance_id == undefined) {
         return (
             <div className="constructor-container disabled">
                 <span className="title">Новая страховка</span>
@@ -15,9 +15,8 @@ const InsuranceConstructor = () => {
     }
 
     return (
-        <Link to={`/insurances/${insurance.id}`} className="constructor-container">
+        <Link to={`/insurances/${insurance_id}`} className="constructor-container">
             <span className="title">Новая страховка</span>
-            {insurance.drivers.length > 0 && <span className="badge">{insurance.drivers.length}</span>}
         </Link>
     )
 }

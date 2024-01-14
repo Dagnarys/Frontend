@@ -17,10 +17,13 @@ const insuranceSlice = createSlice({
 		},
 		updateInsuranceName(state, action){
 			state.name = action.payload
+		},
+		updateInsuranceId(state, action){
+			state.insurance_id = action.payload
 		}
 	}
 })
 
-export const {updateInsurance, updateDrivers, updateInsuranceName} = insuranceSlice.actions;
+export const {updateInsurance,updateInsuranceId, updateDrivers, updateInsuranceName} = insuranceSlice.actions;
 
 export default insuranceSlice.reducer;
