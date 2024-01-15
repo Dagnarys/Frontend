@@ -12,17 +12,21 @@ const DriverPage = ({ selectedDriver, setSelectedDriver }: { selectedDriver:Driv
     const [isMock, setIsMock] = useState<boolean>(false);
 
     useEffect(() => {
-        fetchData()
-    }, [])
+        fetchData();
+
+        return () => {
+            // Cleanup logic if needed
+        };
+    }, [id]);
 
     if (id == undefined){
-        return;
+        return null; // or some other fallback
     }
 
     const fetchData = async () => {
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/drivers/${id}/`, {
+            const response = await fetch(`/api/drivers/${id}/`, {
                 method: "GET",
                 signal: AbortSignal.timeout(requestTime)
             });

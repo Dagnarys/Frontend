@@ -20,7 +20,7 @@ const SearchBarMock: React.FC<SearchBarMockProps> = ({ onSearch }) => {
             <input
                 type="text"
                 placeholder="Поиск..."
-                name="full_name"
+                name="name"
                 autoComplete="off"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

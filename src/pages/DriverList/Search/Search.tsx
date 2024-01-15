@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ query, setQuery}) => {
             <input
                 type="text"
                 placeholder="Поиск..."
-                name="full_name"
+                name="name"
 
                 value={query}
                 onChange={(e) => handleChange(e.target.value)}

@@ -7,22 +7,22 @@ import {Driver} from "../../Types.ts";
 import SearchBarMock from "./Search/SearchMock.tsx";
 
 const DriverList = () => {
-
+    console.log("DriverList rendered");
     const [drivers, setDrivers] = useState<Driver[]>([]);
 
     const [query, setQuery] = useState<string>("");
 
     const [isMock, setIsMock] = useState<boolean>(false);
-    console.log(drivers)
+    
     const searchDrivers = async () => {
 
         try {
-            const response = await fetch(`http://localhost:8000/api/drivers/search/?&full_name=${query}`, {
+            const response = await fetch(`/api/drivers/search/?&full_name=${query}`, {
                 method: "GET",
 
-                signal: AbortSignal.timeout(requestTime)
+                signal: new AbortController().signal,
             })
-            console.log(response.status);
+
             if (!response.ok){
                 createMock();
                 return;
@@ -54,7 +54,7 @@ const DriverList = () => {
     }
 
     useEffect(() => {
-        const controller = new AbortController();
+
         const fetchData = async () => {
             try {
                 await searchDrivers();
@@ -69,9 +69,15 @@ const DriverList = () => {
         // Cleanup function
         return () => {
 
+            const controller = new AbortController();
             controller.abort();
         };
-    }, [query, isMock]);
+    }, [query]);
+
+    useEffect(() => {
+        // Additional logic if needed when isMock changes
+    }, [isMock]);
+
     const searchDriversMock = (searchTerm: string) => {
         const searchTermLowerCase = searchTerm.toLowerCase();
         const filteredDrivers = DriversMock.filter((driver) =>
